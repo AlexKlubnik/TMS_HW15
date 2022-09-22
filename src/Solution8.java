@@ -5,17 +5,15 @@ import java.util.stream.Collectors;
 
 public class Solution8 {
     public static void main(String[] args) {
-        List<String> names = new ArrayList<>(Arrays.asList("Gleb", "Kirill", "Alexander", "Andrey", "Yarik", "Artem",
+        List<String> names = new ArrayList<>(Arrays.asList("Gleb", "Kirill", "alexander", "Andrey", "Yarik", "Artem",
                 "Evgenii", "Andrey", "Dmitry", "Polina"));
 
         List<String> aNames = names.stream()
-                .filter(name->name.matches("[Aa]\\w+"))
-                /*.filter(name->{
-                    if (name.charAt(0) == 'a' || name.charAt(0) == 'A') {
+                .filter(name -> {
+                    if (name.startsWith("a") || name.startsWith("A"))
                         return true;
-                    } else
-                        return false;
-                })*/
+                    else return false;
+                })
                 .collect(Collectors.toList());
         System.out.println(aNames);
 
